@@ -1,0 +1,30 @@
+{
+  "name": "kumquat",
+  "description": "A web showcase for your terminal apps",
+  "main": [
+    "src/kumquat.js",
+    "src/kumquat.sass"
+  ],
+  "authors": [
+    "Israel Roldan (israel.roldan@me.com)"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "terminal",
+    "cli",
+    "command"
+  ],
+  "homepage": "https://github.com/israelroldan/kumquat",
+  "ignore": [
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "CONTRIBUTING.md",
+    "CODE_OF_CONDUCT.md"
+  ],
+  "moduletype": [
+    "es6",
+    "node"
+  ]
+}

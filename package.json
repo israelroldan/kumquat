@@ -1,0 +1,26 @@
+{
+  "name": "kumquat",
+  "version": "0.0.1",
+  "description": "A web showcase for your terminal apps",
+  "main": " ",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/israelroldan/kumquat.git"
+  },
+  "keywords": [
+    "terminal",
+    "cli",
+    "command"
+  ],
+  "author": "Israel Roldan (israel.roldan@me.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/israelroldan/kumquat/issues"
+  },
+  "homepage": "https://github.com/israelroldan/kumquat#readme"
+}

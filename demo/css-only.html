@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>🍊 kumquat ⠗ css-only examples</title>
+    <link rel="stylesheet" href="../dist/kumquat.css">
+    <style>
+        /*
+            These styles are only relevant for the example page.
+        */
+        body {
+            color: #2b3035;
+            font-family: system, -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Lucida Grande", monospace;
+        }
+        h1:before {
+            content: '⠗ ';
+        }
+        footer {
+            margin-top: 20px;
+            padding: 35px;
+            text-align: center;
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="minimal">
+        <h1>Minimal example</h1>
+        <pre>.kumquat-terminal
+    header
+      .btn.green
+      .btn.yellow
+      .btn.red
+      .title
+    section.terminal
+      .cli</pre>
+        <div class="kumquat-terminal">
+            <header>
+                <div class="btn green"></div>
+                <div class="btn yellow"></div>
+                <div class="btn red"></div>
+                <div class="title">kumquat example</div>
+            </header>
+            <section class="terminal">
+                <div class="cli">
+                    $ type<span class="typed-cursor">_</span>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div class="with-source-code-panel">
+        <h1>With source code panel</h1>
+        <pre>.kumquat-terminal
+    header
+      .btn.green
+      .btn.yellow
+      .btn.red
+      .title
+    section.terminal
+      .cli
+      .code</pre>
+        <div class="kumquat-terminal">
+            <header>
+                <div class="btn green"></div>
+                <div class="btn yellow"></div>
+                <div class="btn red"></div>
+                <div class="title">kumquat example</div>
+            </header>
+            <section class="row terminal">
+                <div class="column cli">
+                    $ type<span class="typed-cursor">_</span>
+                </div>
+                <div class="column code">
+                    Code goes here
+                </div>
+            </section>
+        </div>
+    </div>
+    <div class="classic-window-chrome">
+        <h1>Classic window chrome</h1>
+        <pre>.kumquat-terminal.classic
+    header
+      .btn.green
+      .btn.yellow
+      .btn.red
+      .title
+    section.terminal
+      .cli</pre>
+        <div class="kumquat-terminal classic">
+            <header>
+                <div class="btn green"></div>
+                <div class="btn yellow"></div>
+                <div class="btn red"></div>
+                <div class="title">kumquat example</div>
+            </header>
+            <section class="row terminal">
+                <div class="column cli">
+                    $ type<span class="typed-cursor">_</span>
+                </div>
+                <div class="column code">
+                    Code goes here
+                </div>
+            </section>
+        </div>
+    </div>
+    <div class="hard-corners example">
+        <h1>Hard corners</h1>
+        <p>
+            Can be combined with <code>.classic</code>
+        </p>
+        <pre>.kumquat-terminal.hard-corners
+    header
+      .btn.green
+      .btn.yellow
+      .btn.red
+      .title
+    section.terminal
+      .cli</pre>
+        <div class="kumquat-terminal hard-corners">
+            <header>
+                <div class="btn green"></div>
+                <div class="btn yellow"></div>
+                <div class="btn red"></div>
+                <div class="title">kumquat example</div>
+            </header>
+            <section class="row terminal">
+                <div class="column cli">
+                    $ type<span class="typed-cursor">_</span>
+                </div>
+                <div class="column code">
+                    Code goes here
+                </div>
+            </section>
+        </div>
+    </div>
+    <footer>
+        all these examples are 100% responsive<br />
+        🍊 kumquat looks great on mobile devices!
+    </footer>
+</body>
+</html>

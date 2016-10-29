@@ -1,0 +1,206 @@
+/*!
+ * Copyright (c) 2016 Israel Roldan
+ * Licensed under the MIT license
+*/
+
+@keyframes blink {
+  25% { opacity:1; }
+  50% { opacity:0; }
+  75% { opacity:1; }
+}
+
+.kumquat-terminal {
+  text-align: left;
+  height: 360px;
+  margin: auto;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  border-radius: 10px;
+
+  &.hard-corners {
+    border-radius: 0;
+    header {
+      border-radius: 0;
+    }
+  }
+
+  &.classic {
+    header {
+      background: #E0E8F0;
+      color: #2b3035;
+    }
+  }
+
+  header {
+    background: #30353A;
+    color: whitesmoke;
+    height: 30px;
+    border-radius: 8px 8px 0 0;
+    padding-left: 20px;
+
+    .btn {
+      width: 12px;
+      height: 12px;
+      margin: 10px 4px 0 0;
+      display: inline-block;
+      border-radius: 8px;
+
+      &.green {
+        background: #3BB662;
+      }
+
+      &.yellow {
+        background: #E5C30F;
+      }
+
+      &.red {
+        background: #E75448;
+      }
+    }
+
+    .title {
+      display: inline-block;
+      margin-top:5px;
+      width: calc(100% - 100px);
+      text-align: center;
+      font-family: system, -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Lucida Grande", monospace;
+    }
+  }
+
+  section.terminal {
+    background: #30353A;
+    padding: 10px;
+    box-sizing: border-box;
+    position: absolute;
+    top: 30px;
+    bottom: 0;
+    overflow: auto;
+
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    font-family: Menlo, Monaco, "Consolas", "Courier New", "Courier", monospace;
+    color: gainsboro;
+
+    .cli, .code {
+      display: block;
+      flex: 1;
+      margin-left: 0;
+      max-width: 100%;
+      width: 100%;
+    }
+
+    .cli {
+      font-size: 11pt;
+      overflow: scroll;
+
+      .typed-cursor {
+        opacity: 1;
+        animation: blink 1s infinite;
+      }
+    }
+
+    .code {
+      color: slategray;
+      overflow: scroll;
+      border-top: solid #2b3035;
+      padding-top: 5px;
+    }
+
+    &.no-cli {
+      .cli {
+        visibility: hidden;
+        display: none;
+      }
+
+      .code {
+        border-top: none;
+        padding-top: 0;
+      }
+    }
+
+    &.no-code {
+      .code {
+        visibility: hidden;
+        display: none;
+      }
+    }
+  }
+
+  .ansi-green {
+    color: #39975c;
+  }
+
+  .ansi-cyan {
+    color: darkcyan;
+  }
+
+  .ansi-magenta {
+    color: magenta;
+  }
+
+  .ansi-purple {
+    color: mediumslateblue;
+  }
+
+  .ansi-underline {
+    text-decoration: underline;
+  }
+
+  .ansi-bold {
+    font-weight: bold;
+  }
+
+  .ansi-gray {
+    color: slategray;
+  }
+
+  .ansi-yellow {
+    color: gold;
+  }
+}
+
+@media (max-width: 269px) {
+  .kumquat-terminal {
+    header {
+      .title {
+        visibility: hidden;
+        display: none;
+      }
+    }
+  }
+}
+
+@media (min-width: 720px) {
+  .kumquat-terminal {
+    section.terminal {
+      flex-direction: row;
+      width: 100%;
+
+      .cli, .code {
+        margin-bottom: inherit;
+        padding: 0 16px;
+      }
+
+      .code {
+        border-left: solid #2b3035;
+        border-top: none;
+        padding-top: 0;
+      }
+
+      &.no-cli {
+        .cli {
+          visibility: hidden;
+          display: none;
+        }
+
+        .code {
+          border-left: none;
+          padding-left: 0;
+        }
+      }
+    }
+  }
+}

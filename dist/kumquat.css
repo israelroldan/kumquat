@@ -1,0 +1,135 @@
+/*!
+ * Copyright (c) 2016 Israel Roldan
+ * Licensed under the MIT license
+*/
+@keyframes blink {
+  25% {
+    opacity: 1; }
+  50% {
+    opacity: 0; }
+  75% {
+    opacity: 1; } }
+
+.kumquat-terminal {
+  text-align: left;
+  height: 360px;
+  margin: auto;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  border-radius: 10px; }
+  .kumquat-terminal.hard-corners {
+    border-radius: 0; }
+    .kumquat-terminal.hard-corners header {
+      border-radius: 0; }
+  .kumquat-terminal.classic header {
+    background: #E0E8F0;
+    color: #2b3035; }
+  .kumquat-terminal header {
+    background: #30353A;
+    color: whitesmoke;
+    height: 30px;
+    border-radius: 8px 8px 0 0;
+    padding-left: 20px; }
+    .kumquat-terminal header .btn {
+      width: 12px;
+      height: 12px;
+      margin: 10px 4px 0 0;
+      display: inline-block;
+      border-radius: 8px; }
+      .kumquat-terminal header .btn.green {
+        background: #3BB662; }
+      .kumquat-terminal header .btn.yellow {
+        background: #E5C30F; }
+      .kumquat-terminal header .btn.red {
+        background: #E75448; }
+    .kumquat-terminal header .title {
+      display: inline-block;
+      margin-top: 5px;
+      width: calc(100% - 100px);
+      text-align: center;
+      font-family: system, -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Lucida Grande", monospace; }
+  .kumquat-terminal section.terminal {
+    background: #30353A;
+    padding: 10px;
+    box-sizing: border-box;
+    position: absolute;
+    top: 30px;
+    bottom: 0;
+    overflow: auto;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: 100%;
+    font-family: Menlo, Monaco, "Consolas", "Courier New", "Courier", monospace;
+    color: gainsboro; }
+    .kumquat-terminal section.terminal .cli, .kumquat-terminal section.terminal .code {
+      display: block;
+      -ms-flex: 1;
+      flex: 1;
+      margin-left: 0;
+      max-width: 100%;
+      width: 100%; }
+    .kumquat-terminal section.terminal .cli {
+      font-size: 11pt;
+      overflow: scroll; }
+      .kumquat-terminal section.terminal .cli .typed-cursor {
+        opacity: 1;
+        animation: blink 1s infinite; }
+    .kumquat-terminal section.terminal .code {
+      color: slategray;
+      overflow: scroll;
+      border-top: solid #2b3035;
+      padding-top: 5px; }
+    .kumquat-terminal section.terminal.no-cli .cli {
+      visibility: hidden;
+      display: none; }
+    .kumquat-terminal section.terminal.no-cli .code {
+      border-top: none;
+      padding-top: 0; }
+    .kumquat-terminal section.terminal.no-code .code {
+      visibility: hidden;
+      display: none; }
+  .kumquat-terminal .ansi-green {
+    color: #39975c; }
+  .kumquat-terminal .ansi-cyan {
+    color: darkcyan; }
+  .kumquat-terminal .ansi-magenta {
+    color: magenta; }
+  .kumquat-terminal .ansi-purple {
+    color: mediumslateblue; }
+  .kumquat-terminal .ansi-underline {
+    text-decoration: underline; }
+  .kumquat-terminal .ansi-bold {
+    font-weight: bold; }
+  .kumquat-terminal .ansi-gray {
+    color: slategray; }
+  .kumquat-terminal .ansi-yellow {
+    color: gold; }
+
+@media (max-width: 269px) {
+  .kumquat-terminal header .title {
+    visibility: hidden;
+    display: none; } }
+
+@media (min-width: 720px) {
+  .kumquat-terminal section.terminal {
+    -ms-flex-direction: row;
+    flex-direction: row;
+    width: 100%; }
+    .kumquat-terminal section.terminal .cli, .kumquat-terminal section.terminal .code {
+      margin-bottom: inherit;
+      padding: 0 16px; }
+    .kumquat-terminal section.terminal .code {
+      border-left: solid #2b3035;
+      border-top: none;
+      padding-top: 0; }
+    .kumquat-terminal section.terminal.no-cli .cli {
+      visibility: hidden;
+      display: none; }
+    .kumquat-terminal section.terminal.no-cli .code {
+      border-left: none;
+      padding-left: 0; } }
+
+/*# sourceMappingURL=kumquat.css.map */

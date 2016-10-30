@@ -22,12 +22,17 @@
     border-radius: 0; }
     .kumquat-terminal.hard-corners header {
       border-radius: 0; }
-  .kumquat-terminal.classic header {
+  .kumquat-terminal.classic-frame header {
     background: #E0E8F0;
     color: #2b3035; }
+  .kumquat-terminal.no-theme header {
+    background: none; }
+    .kumquat-terminal.no-theme header .title {
+      color: black; }
+  .kumquat-terminal.no-theme section.terminal {
+    background: none;
+    color: black; }
   .kumquat-terminal header {
-    background: #30353A;
-    color: whitesmoke;
     height: 30px;
     border-radius: 8px 8px 0 0;
     padding-left: 20px; }
@@ -50,7 +55,6 @@
       text-align: center;
       font-family: system, -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Lucida Grande", monospace; }
   .kumquat-terminal section.terminal {
-    background: #30353A;
     padding: 10px;
     box-sizing: border-box;
     position: absolute;
@@ -62,8 +66,7 @@
     -ms-flex-direction: column;
     flex-direction: column;
     width: 100%;
-    font-family: Menlo, Monaco, "Consolas", "Courier New", "Courier", monospace;
-    color: gainsboro; }
+    font-family: Menlo, Monaco, "Consolas", "Courier New", "Courier", monospace; }
     .kumquat-terminal section.terminal .cli, .kumquat-terminal section.terminal .code {
       display: block;
       -ms-flex: 1;
@@ -78,7 +81,6 @@
         opacity: 1;
         animation: blink 1s infinite; }
     .kumquat-terminal section.terminal .code {
-      color: slategray;
       overflow: scroll;
       border-top: solid #2b3035;
       padding-top: 5px; }
@@ -91,22 +93,6 @@
     .kumquat-terminal section.terminal.no-code .code {
       visibility: hidden;
       display: none; }
-  .kumquat-terminal .ansi-green {
-    color: #39975c; }
-  .kumquat-terminal .ansi-cyan {
-    color: darkcyan; }
-  .kumquat-terminal .ansi-magenta {
-    color: magenta; }
-  .kumquat-terminal .ansi-purple {
-    color: mediumslateblue; }
-  .kumquat-terminal .ansi-underline {
-    text-decoration: underline; }
-  .kumquat-terminal .ansi-bold {
-    font-weight: bold; }
-  .kumquat-terminal .ansi-gray {
-    color: slategray; }
-  .kumquat-terminal .ansi-yellow {
-    color: gold; }
 
 @media (max-width: 269px) {
   .kumquat-terminal header .title {
@@ -131,5 +117,123 @@
     .kumquat-terminal section.terminal.no-cli .code {
       border-left: none;
       padding-left: 0; } }
+
+.kumquat-terminal header {
+  background: #30353A;
+  color: whitesmoke; }
+
+.kumquat-terminal section.terminal {
+  background: #30353A;
+  color: gainsboro; }
+  .kumquat-terminal section.terminal .code {
+    color: slategray; }
+
+.kumquat-terminal .line:before {
+  content: '$ ';
+  color: #4C9F87; }
+
+.kumquat-terminal .ansi-bold {
+  font-weight: bold; }
+
+.kumquat-terminal .ansi-dim {
+  color: grey; }
+
+.kumquat-terminal .ansi-italic {
+  font-style: italic; }
+
+.kumquat-terminal .ansi-underline {
+  text-decoration: underline; }
+
+.kumquat-terminal .ansi-inverse {
+  background-color: gainsboro;
+  color: #30353A; }
+
+.kumquat-terminal .ansi-strikethrough {
+  text-decoration: line-through; }
+
+.kumquat-terminal .ansi-black {
+  color: dimgrey; }
+
+.kumquat-terminal .ansi-red {
+  color: #D24858; }
+
+.kumquat-terminal .ansi-green {
+  color: #62997A; }
+
+.kumquat-terminal .ansi-yellow {
+  color: #F4F090; }
+
+.kumquat-terminal .ansi-blue {
+  color: #7595B3; }
+
+.kumquat-terminal .ansi-magenta {
+  color: #F23064; }
+
+.kumquat-terminal .ansi-cyan {
+  color: #6ED0B0; }
+
+.kumquat-terminal .ansi-gray {
+  color: grey; }
+
+.kumquat-terminal .ansi-bgBlack {
+  color: gainsboro;
+  background-color: dimgrey; }
+
+.kumquat-terminal .ansi-bgRed {
+  color: gainsboro;
+  background-color: #D24858; }
+
+.kumquat-terminal .ansi-bgGreen {
+  color: gainsboro;
+  background-color: #62997A; }
+
+.kumquat-terminal .ansi-bgYellow {
+  color: grey;
+  background-color: #F4F090; }
+
+.kumquat-terminal .ansi-bgBlue {
+  color: gainsboro;
+  background-color: #7595B3; }
+
+.kumquat-terminal .ansi-bgMagenta {
+  color: gainsboro;
+  background-color: #F23064; }
+
+.kumquat-terminal .ansi-bgCyan {
+  color: grey;
+  background-color: #6ED0B0; }
+
+.kumquat-terminal .ansi-bgWhite {
+  color: grey;
+  background-color: gainsboro; }
+
+.kumquat-terminal .ansi-bgGray {
+  color: gainsboro;
+  background-color: grey; }
+
+.kumquat-terminal.theme-retro header {
+  background: #E0E8F0;
+  color: #2b3035; }
+
+.kumquat-terminal.theme-retro section.terminal {
+  background: black;
+  color: cyan; }
+
+.kumquat-terminal.theme-retro .line:before {
+  content: '$ ';
+  color: lime; }
+
+.kumquat-terminal.theme-plain {
+  border: 1px solid #2b3035; }
+  .kumquat-terminal.theme-plain header {
+    background: white;
+    color: #2b3035; }
+  .kumquat-terminal.theme-plain section.terminal {
+    border-top: 1px solid #2b3035;
+    background: white;
+    color: #2b3035; }
+  .kumquat-terminal.theme-plain .line:before {
+    content: '$ ';
+    color: orangered; }
 
 /*# sourceMappingURL=kumquat.css.map */

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>🍊 kumquat ⠗ themes</title>
+    <link rel="stylesheet" href="../dist/kumquat.css">
+    <style>
+        /*
+            These styles are only relevant for the example page.
+        */
+        body {
+            color: #2b3035;
+            font-family: system, -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Lucida Grande", monospace;
+        }
+        h1:before {
+            content: '⠗ ';
+        }
+        .kumquat-terminal {
+            height: 470px;
+        }
+        footer {
+            margin-top: 20px;
+            padding: 35px;
+            text-align: center;
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="example">
+        <h1>Default theme</h1>
+        <div class="kumquat-terminal">
+        </div>
+    </div>
+    <div class="example">
+        <h1>Retro theme</h1>
+        <div class="kumquat-terminal theme-retro">
+        </div>
+    </div>
+    <div class="example">
+        <h1>Plain theme</h1>
+        <div class="kumquat-terminal theme-plain">
+        </div>
+    </div>
+    <footer>
+        🍊 kumquat looks great on mobile devices!
+    </footer>
+    <script>
+        document.querySelectorAll('.kumquat-terminal').forEach((kt)=>{
+            kt.innerHTML=`<header>
+                <div class="btn green"></div>
+                <div class="btn yellow"></div>
+                <div class="btn red"></div>
+                <div class="title">kumquat example</div>
+            </header>
+            <section class="terminal">
+                <div class="cli"></div>
+                <div class="code">Code goes here</div>
+            </section>`
+        });
+        // For this particular example it is faster to show everything
+        // altogether instead of typing it with a script
+        document.querySelectorAll('.cli').forEach((target) => {
+            [
+                "bold",
+                "dim",
+                "italic",
+                "underline",
+                "inverse",
+                "strikethrough",
+                "black",
+                "red",
+                "green",
+                "yellow",
+                "blue",
+                "magenta",
+                "cyan",
+                "white",
+                "gray",
+                "bgBlack",
+                "bgRed",
+                "bgGreen",
+                "bgYellow",
+                "bgBlue",
+                "bgMagenta",
+                "bgCyan",
+                "bgWhite",
+                "bgGray"
+            ].forEach((c) => target.innerHTML += (`<div class="line">${c}: <span class="ansi-${c}">${c}</span></div>`));
+        });
+    </script>
+</body>
+</html>

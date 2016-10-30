@@ -1,17 +1,41 @@
+![kumquat screenshot](assets/screenshot.png)
+
 # kumquat 🍊 
 A web showcase for your terminal apps 
 
 ## Getting Started
 
-**Quick Start**
+**Quick start using bower**
 
-Install using bower
+1. Install using bower
 
-    bower install kumquat
+        bower install kumquat
     
-Include `sass/kumquat-all.scss` into your project.
-
-If you prefer minfied sources, check the `dist` directory.
+2. Create `kumquat-example.html`:
+        
+        <html>
+        <head>
+            <title>kumquat example</title>
+            <link rel="stylesheet" href="bower-components/kumquat/dist/kumquat.css">
+        </head>
+        <body>
+            <div class="kumquat-terminal">
+                <header>
+                    <div class="btn green"></div>
+                    <div class="btn yellow"></div>
+                    <div class="btn red"></div>
+                    <div class="title">kumquat example</div>
+                </header>
+                <section class="terminal">
+                    <div class="cli">
+                        <div class="line">type<span class="cursor">_</span></div>
+                    </div>
+                </section>
+            </div>
+        </body>
+        </html>
+        
+3. Open `kumquat-example.html` in your browser (no server required!).
 
 ## Contributing
 

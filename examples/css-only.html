@@ -2,30 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>🍊 kumquat ⠗ css-only examples</title>
     <link rel="stylesheet" href="../dist/kumquat.css">
-    <style>
-        /*
-            These styles are only relevant for the example page.
-        */
-        body {
-            color: #2b3035;
-            font-family: system, -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Lucida Grande", monospace;
-        }
-        h1:before {
-            content: '⠗ ';
-        }
-        footer {
-            margin-top: 20px;
-            padding: 35px;
-            text-align: center;
-            font-size: 15px;
-        }
-    </style>
+    <link rel="stylesheet" href="example.css">
 </head>
 <body>
+    <h1>CSS-only examples</h1>
+    <p>
+        The following examples are constructed using only markup and the <code>kumquat.css</code> file.
+    </p>
     <div class="minimal">
-        <h1>Minimal example</h1>
+        <h2>Minimal example</h2>
+        <p><a href="https://www.npmjs.com/package/jade">jade / pug</a> template:</p>
         <pre>.kumquat-terminal
     header
       .btn.green
@@ -36,6 +25,8 @@
       .cli
         .line
           .cursor</pre>
+        <p><a href="http://emmet.io/">emmet</a> expression:</p>
+        <pre>.kumquat-terminal>(header>.btn.green+.btn.yellow+.btn.red+.title{kumquat example})+(section.terminal>.cli>.line{type}>span.cursor))</pre>
         <div class="kumquat-terminal">
             <header>
                 <div class="btn green"></div>
@@ -51,7 +42,8 @@
         </div>
     </div>
     <div class="with-source-code-panel">
-        <h1>With source code panel</h1>
+        <h2>With source code panel</h2>
+        <p><a href="https://www.npmjs.com/package/jade">jade / pug</a> template:</p>
         <pre>.kumquat-terminal
     header
       .btn.green
@@ -63,6 +55,8 @@
         .line
           .cursor
       .code</pre>
+        <p><a href="http://emmet.io/">emmet</a> expression:</p>
+        <pre>.kumquat-terminal>(header>.btn.green+.btn.yellow+.btn.red+.title{kumquat example})+(section.terminal>(.cli>.line{type}>span.cursor)+(.code{Code goes here}))</pre>
         <div class="kumquat-terminal">
             <header>
                 <div class="btn green"></div>
@@ -81,7 +75,8 @@
         </div>
     </div>
     <div class="hard-corners example">
-        <h1>Hard corners</h1>
+        <h2>Hard corners</h2>
+        <p><a href="https://www.npmjs.com/package/jade">jade / pug</a> template:</p>
         <pre>.kumquat-terminal.hard-corners
     header
       .btn.green
@@ -93,6 +88,8 @@
         .line
           .cursor
       .code</pre>
+        <p><a href="http://emmet.io/">emmet</a> expression:</p>
+        <pre>.kumquat-terminal.hard-corners>(header>.btn.green+.btn.yellow+.btn.red+.title{kumquat example})+(section.terminal>(.cli>.line{type}>span.cursor)+(.code{Code goes here}))</pre>
         <div class="kumquat-terminal hard-corners">
             <header>
                 <div class="btn green"></div>

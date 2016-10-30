@@ -2,31 +2,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>🍊 kumquat ⠗ themes</title>
     <link rel="stylesheet" href="../dist/kumquat-all.css">
+    <link rel="stylesheet" href="example.css">
     <style>
         /*
-            These styles are only relevant for the example page.
+            These styles are only relevant for the example page, not related to the examples themselves.
         */
-        body {
-            color: #2b3035;
-            font-family: system, -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Lucida Grande", monospace;
-        }
-        h1:before {
-            content: '⠗ ';
-        }
-        .kumquat-terminal {
-            height: 485px;
-        }
-        footer {
-            margin-top: 20px;
-            padding: 35px;
-            text-align: center;
-            font-size: 15px;
-        }
+        .kumquat-terminal { height: 485px; }
     </style>
 </head>
 <body>
+    <h1>Theme showcase</h1>
+    <p>
+        A theme can define the visual style of the window and its contents, including all "ansi-escape-like" formatting.<br>
+        Each theme is available as individual files to be used on their own if desired.<br>
+        The file <code>kumquat-all.css</code> includes all themes.
+    </p>
+    <div class="examples"></div>
+    <footer>
+        did you know you can create your own theme?<br />
+        🍊 kumquat has a very flexible styling system!
+    </footer>
     <script>
         [
             'default',
@@ -36,7 +34,10 @@
         ].forEach((name) => {
             let kt = document.createElement('div');
             kt.classList.add('example');
-            kt.innerHTML=`<h1>theme-${name}</h1>
+            kt.innerHTML=`<h2>${name === 'default' ? 'default theme' : 'theme-' + name }</h2>
+            <p>
+                ${name === 'default' ? 'This is the default theme, no extra files or classes are needed besides <code>kumquat.css</code>' : 'How to use: <ol><li>Include <code>themes/kumquat-' + name + '.css</code></li><li>Add the class <code>theme-' + name + '</code> to your <code>.kumquat-terminal</code> element</li></ol>' }
+            </p>
         <div class="kumquat-terminal theme-${name}">
             <header>
                 <div class="btn green"></div>
@@ -49,7 +50,7 @@
                 <div class="code">Code goes here</div>
             </section>
         </div>`;
-            document.body.appendChild(kt);
+            document.getElementsByClassName('examples')[0].appendChild(kt);
         });
         document.querySelectorAll('.cli').forEach((target) => {
             [

@@ -39,26 +39,6 @@ $terminal-code-font: $terminal-font;
     }
   }
 
-  &.classic-frame {
-    header {
-      background: #E0E8F0;
-      color: #2b3035;
-    }
-  }
-
-  &.no-theme {
-    header {
-      background: none;
-      .title {
-        color: black;
-      }
-    }
-    section.terminal {
-      background: none;
-      color: black;
-    }
-  }
-
   header {
     height: 30px;
     border-radius: $border-radius $border-radius 0 0;
@@ -119,7 +99,7 @@ $terminal-code-font: $terminal-font;
       font-size: 15px;
       overflow: scroll;
 
-      .typed-cursor {
+      .cursor {
         opacity: 1;
         animation: blink 1s infinite;
       }

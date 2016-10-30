@@ -33,7 +33,9 @@
       .btn.red
       .title
     section.terminal
-      .cli</pre>
+      .cli
+        .line
+          .cursor</pre>
         <div class="kumquat-terminal">
             <header>
                 <div class="btn green"></div>
@@ -43,7 +45,7 @@
             </header>
             <section class="terminal">
                 <div class="cli">
-                    $ type<span class="typed-cursor">_</span>
+                    <div class="line">type<span class="cursor">_</span></div>
                 </div>
             </section>
         </div>
@@ -58,6 +60,8 @@
       .title
     section.terminal
       .cli
+        .line
+          .cursor
       .code</pre>
         <div class="kumquat-terminal">
             <header>
@@ -68,34 +72,7 @@
             </header>
             <section class="row terminal">
                 <div class="column cli">
-                    $ type<span class="typed-cursor">_</span>
-                </div>
-                <div class="column code">
-                    Code goes here
-                </div>
-            </section>
-        </div>
-    </div>
-    <div class="classic-window-frame">
-        <h1>Classic window frame</h1>
-        <pre>.kumquat-terminal.classic-frame
-    header
-      .btn.green
-      .btn.yellow
-      .btn.red
-      .title
-    section.terminal
-      .cli</pre>
-        <div class="kumquat-terminal classic-frame">
-            <header>
-                <div class="btn green"></div>
-                <div class="btn yellow"></div>
-                <div class="btn red"></div>
-                <div class="title">kumquat example</div>
-            </header>
-            <section class="row terminal">
-                <div class="column cli">
-                    $ type<span class="typed-cursor">_</span>
+                    <div class="line">type<span class="cursor">_</span></div>
                 </div>
                 <div class="column code">
                     Code goes here
@@ -105,9 +82,6 @@
     </div>
     <div class="hard-corners example">
         <h1>Hard corners</h1>
-        <p>
-            Can be combined with <code>.classic</code>
-        </p>
         <pre>.kumquat-terminal.hard-corners
     header
       .btn.green
@@ -115,7 +89,10 @@
       .btn.red
       .title
     section.terminal
-      .cli</pre>
+      .cli
+        .line
+          .cursor
+      .code</pre>
         <div class="kumquat-terminal hard-corners">
             <header>
                 <div class="btn green"></div>
@@ -125,7 +102,7 @@
             </header>
             <section class="row terminal">
                 <div class="column cli">
-                    $ type<span class="typed-cursor">_</span>
+                    <div class="line">type<span class="cursor">_</span></div>
                 </div>
                 <div class="column code">
                     Code goes here

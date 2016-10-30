@@ -9,9 +9,9 @@ Install using bower
 
     bower install kumquat
     
-Include `src/kumquat.scss` into your project.
+Include `sass/kumquat-all.scss` into your project.
 
-If you prefer minfied sources, check the `dist` directory of your installed version.
+If you prefer minfied sources, check the `dist` directory.
 
 ## Contributing
 

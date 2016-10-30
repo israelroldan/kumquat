@@ -2,7 +2,7 @@
   "name": "kumquat",
   "description": "A web showcase for your terminal apps",
   "main": [
-    "src/kumquat.sass"
+    "sass/kumquat-all.scss"
   ],
   "authors": [
     "Israel Roldan (israel.roldan@me.com)"

@@ -3,6 +3,20 @@
  * Licensed under the MIT license
 */
 
+/* Main window */
+$height: 360px;
+$border-radius: 10px;
+
+/* Header */
+$header-title-font: system, -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Lucida Grande", monospace;
+
+/* Terminal */
+$terminal-font: Menlo, Monaco, "Consolas", "Courier New", "Courier", monospace;
+$terminal-cli-font: $terminal-font;
+$terminal-code-font: $terminal-font;
+
+/*** Kumquat ***/
+
 @keyframes blink {
   25% { opacity:1; }
   50% { opacity:0; }
@@ -11,12 +25,12 @@
 
 .kumquat-terminal {
   text-align: left;
-  height: 360px;
+  height: $height;
   margin: auto;
   position: relative;
   overflow: hidden;
   width: 100%;
-  border-radius: 10px;
+  border-radius: $border-radius;
 
   &.hard-corners {
     border-radius: 0;
@@ -47,7 +61,7 @@
 
   header {
     height: 30px;
-    border-radius: 8px 8px 0 0;
+    border-radius: $border-radius $border-radius 0 0;
     padding-left: 20px;
 
     .btn {
@@ -55,7 +69,7 @@
       height: 12px;
       margin: 10px 4px 0 0;
       display: inline-block;
-      border-radius: 8px;
+      border-radius: $border-radius;
 
       &.green {
         background: #3BB662;
@@ -75,7 +89,7 @@
       margin-top:5px;
       width: calc(100% - 100px);
       text-align: center;
-      font-family: system, -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Lucida Grande", monospace;
+      font-family: $header-title-font
     }
   }
 
@@ -91,7 +105,7 @@
     flex-direction: column;
     width: 100%;
 
-    font-family: Menlo, Monaco, "Consolas", "Courier New", "Courier", monospace;
+    font-family: $terminal-cli-font;
 
     .cli, .code {
       display: block;
@@ -102,7 +116,7 @@
     }
 
     .cli {
-      font-size: 11pt;
+      font-size: 15px;
       overflow: scroll;
 
       .typed-cursor {
@@ -113,7 +127,7 @@
 
     .code {
       overflow: scroll;
-      border-top: solid #2b3035;
+      margin-top: 5px;
       padding-top: 5px;
     }
 
@@ -161,7 +175,6 @@
       }
 
       .code {
-        border-left: solid #2b3035;
         border-top: none;
         padding-top: 0;
       }
@@ -180,3 +193,6 @@
     }
   }
 }
+
+/** Construct the theme styles **/
+@import "themes/base";

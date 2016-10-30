@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>🍊 kumquat ⠗ themes</title>
-    <link rel="stylesheet" href="../dist/kumquat.css">
+    <link rel="stylesheet" href="../dist/kumquat-all.css">
     <style>
         /*
             These styles are only relevant for the example page.
@@ -16,7 +16,7 @@
             content: '⠗ ';
         }
         .kumquat-terminal {
-            height: 470px;
+            height: 485px;
         }
         footer {
             margin-top: 20px;
@@ -27,39 +27,30 @@
     </style>
 </head>
 <body>
-    <div class="example">
-        <h1>Default theme</h1>
-        <div class="kumquat-terminal">
-        </div>
-    </div>
-    <div class="example">
-        <h1>Retro theme</h1>
-        <div class="kumquat-terminal theme-retro">
-        </div>
-    </div>
-    <div class="example">
-        <h1>Plain theme</h1>
-        <div class="kumquat-terminal theme-plain">
-        </div>
-    </div>
-    <footer>
-        🍊 kumquat looks great on mobile devices!
-    </footer>
     <script>
-        document.querySelectorAll('.kumquat-terminal').forEach((kt)=>{
-            kt.innerHTML=`<header>
+        [
+            'default',
+            'vibrant',
+            'retro',
+            'plain'
+        ].forEach((name) => {
+            let kt = document.createElement('div');
+            kt.classList.add('example');
+            kt.innerHTML=`<h1>theme-${name}</h1>
+        <div class="kumquat-terminal theme-${name}">
+            <header>
                 <div class="btn green"></div>
                 <div class="btn yellow"></div>
                 <div class="btn red"></div>
-                <div class="title">kumquat example</div>
+                <div class="title">kumquat - theme: ${name}</div>
             </header>
             <section class="terminal">
                 <div class="cli"></div>
                 <div class="code">Code goes here</div>
-            </section>`
+            </section>
+        </div>`;
+            document.body.appendChild(kt);
         });
-        // For this particular example it is faster to show everything
-        // altogether instead of typing it with a script
         document.querySelectorAll('.cli').forEach((target) => {
             [
                 "bold",

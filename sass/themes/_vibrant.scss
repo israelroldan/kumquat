@@ -1,0 +1,147 @@
+/*
+ * Vibrant theme - variables
+ */
+$kt-vibrant-background: black;
+$kt-vibrant-color: whitesmoke;
+$kt-vibrant-accent: orangered;
+$kt-vibrant-prompt-character: '$';
+
+/*
+ * Vibrant theme - styles
+ */
+$kt-header-background: $kt-vibrant-background;
+$kt-header-color: $kt-vibrant-color;
+
+$kt-terminal-background: $kt-vibrant-background;
+$kt-terminal-color: $kt-vibrant-color;
+$kt-terminal-divider: $kt-vibrant-accent;
+$kt-terminal-prompt-color: $kt-vibrant-accent;
+$kt-terminal-prompt-character: $kt-vibrant-prompt-character;
+$kt-terminal-code-color: mix(grey,darken($kt-vibrant-accent, 12%));
+
+.kumquat-terminal.theme-vibrant {
+  header {
+    background: $kt-header-background;
+    color: $kt-header-color;
+  }
+  section.terminal {
+    background: $kt-terminal-background;
+    color: $kt-terminal-color;
+
+    .code {
+      border-top: $kt-terminal-divider solid;
+      color: $kt-terminal-code-color;
+      @media (min-width: 720px) {
+          border-left: solid $kt-terminal-divider;
+          border-top: none!important;
+      }
+    }
+  }
+
+  .line:before {
+    content: '$ ';
+    color: orangered;
+  }
+
+  .ansi-bold {
+    font-weight: bold;
+  }
+
+  .ansi-dim {
+    color: grey;
+  }
+
+  .ansi-italic {
+    font-style: italic;
+  }
+
+  .ansi-underline {
+    text-decoration: underline;
+  }
+
+  .ansi-inverse {
+    background-color: white;
+    color: black;
+  }
+
+  .ansi-strikethrough {
+    text-decoration: line-through;
+  }
+
+  .ansi-black {
+    color: dimgrey;
+  }
+
+  .ansi-red {
+    color: red;
+  }
+
+  .ansi-green {
+    color: yellowgreen;
+  }
+
+  .ansi-yellow {
+    color: gold;
+  }
+
+  .ansi-blue {
+    color: royalblue;
+  }
+
+  .ansi-magenta {
+    color: magenta;
+  }
+
+  .ansi-cyan {
+    color: cyan;
+  }
+
+  .ansi-gray {
+    color: grey;
+  }
+
+  .ansi-bgBlack {
+    color: white;
+    background-color: black;
+  }
+
+  .ansi-bgRed {
+    color: white;
+    background-color: red;
+  }
+
+  .ansi-bgGreen {
+    color: black;
+    background-color: yellowgreen;
+  }
+
+  .ansi-bgYellow {
+    color: black;
+    background-color: gold;
+  }
+
+  .ansi-bgBlue {
+    color: white;
+    background-color: royalblue;
+  }
+
+  .ansi-bgMagenta {
+    color: white;
+    background-color: magenta;
+  }
+
+  .ansi-bgCyan {
+    color: black;
+    background-color: cyan;
+  }
+
+  .ansi-bgWhite {
+    color: black;
+    background-color: white;
+  }
+
+  .ansi-bgGray {
+    color: white;
+    background-color: dimgrey;
+  }
+}

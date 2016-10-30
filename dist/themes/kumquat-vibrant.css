@@ -226,4 +226,108 @@
   color: gainsboro;
   background-color: grey; }
 
-/*# sourceMappingURL=kumquat.css.map */
+/*
+ * Vibrant theme - variables
+ */
+/*
+ * Vibrant theme - styles
+ */
+.kumquat-terminal.theme-vibrant header {
+  background: black;
+  color: whitesmoke; }
+
+.kumquat-terminal.theme-vibrant section.terminal {
+  background: black;
+  color: whitesmoke; }
+  .kumquat-terminal.theme-vibrant section.terminal .code {
+    border-top: orangered solid;
+    color: #a15a40; }
+    @media (min-width: 720px) {
+      .kumquat-terminal.theme-vibrant section.terminal .code {
+        border-left: solid orangered;
+        border-top: none !important; } }
+
+.kumquat-terminal.theme-vibrant .line:before {
+  content: '$ ';
+  color: orangered; }
+
+.kumquat-terminal.theme-vibrant .ansi-bold {
+  font-weight: bold; }
+
+.kumquat-terminal.theme-vibrant .ansi-dim {
+  color: grey; }
+
+.kumquat-terminal.theme-vibrant .ansi-italic {
+  font-style: italic; }
+
+.kumquat-terminal.theme-vibrant .ansi-underline {
+  text-decoration: underline; }
+
+.kumquat-terminal.theme-vibrant .ansi-inverse {
+  background-color: white;
+  color: black; }
+
+.kumquat-terminal.theme-vibrant .ansi-strikethrough {
+  text-decoration: line-through; }
+
+.kumquat-terminal.theme-vibrant .ansi-black {
+  color: dimgrey; }
+
+.kumquat-terminal.theme-vibrant .ansi-red {
+  color: red; }
+
+.kumquat-terminal.theme-vibrant .ansi-green {
+  color: yellowgreen; }
+
+.kumquat-terminal.theme-vibrant .ansi-yellow {
+  color: gold; }
+
+.kumquat-terminal.theme-vibrant .ansi-blue {
+  color: royalblue; }
+
+.kumquat-terminal.theme-vibrant .ansi-magenta {
+  color: magenta; }
+
+.kumquat-terminal.theme-vibrant .ansi-cyan {
+  color: cyan; }
+
+.kumquat-terminal.theme-vibrant .ansi-gray {
+  color: grey; }
+
+.kumquat-terminal.theme-vibrant .ansi-bgBlack {
+  color: white;
+  background-color: black; }
+
+.kumquat-terminal.theme-vibrant .ansi-bgRed {
+  color: white;
+  background-color: red; }
+
+.kumquat-terminal.theme-vibrant .ansi-bgGreen {
+  color: black;
+  background-color: yellowgreen; }
+
+.kumquat-terminal.theme-vibrant .ansi-bgYellow {
+  color: black;
+  background-color: gold; }
+
+.kumquat-terminal.theme-vibrant .ansi-bgBlue {
+  color: white;
+  background-color: royalblue; }
+
+.kumquat-terminal.theme-vibrant .ansi-bgMagenta {
+  color: white;
+  background-color: magenta; }
+
+.kumquat-terminal.theme-vibrant .ansi-bgCyan {
+  color: black;
+  background-color: cyan; }
+
+.kumquat-terminal.theme-vibrant .ansi-bgWhite {
+  color: black;
+  background-color: white; }
+
+.kumquat-terminal.theme-vibrant .ansi-bgGray {
+  color: white;
+  background-color: dimgrey; }
+
+/*# sourceMappingURL=kumquat-vibrant.css.map */

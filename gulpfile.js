@@ -36,7 +36,7 @@ function scripts(watch) {
 }
 
 gulp.task('sass', function() {
-    return gulp.src('./src/**/*.scss')
+    return gulp.src('./sass/**/*.scss')
         .pipe(sourcemaps.init())
         .pipe(sass().on('error', sass.logError))
         .pipe(autoprefixer({
@@ -51,7 +51,7 @@ gulp.task('scripts', function() { return scripts(); });
 gulp.task('watch-scripts', function() { return scripts(true); });
 
 gulp.task('watch', function () {
-    gulp.watch('./src/**/*.scss', ['sass']);
+    gulp.watch('./sass/**/*.scss', ['sass']);
     gulp.watch('./src/**/*.js', ['watch-scripts']);
 });
 

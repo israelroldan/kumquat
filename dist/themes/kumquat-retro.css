@@ -1,3 +1,107 @@
+/*
+ * Retro theme - variables
+ */
+/*
+ * Retro theme - styles
+ */
+.kumquat-terminal.theme-retro header {
+  background: #E0E8F0;
+  color: #2b3035; }
+
+.kumquat-terminal.theme-retro section.terminal {
+  background: black;
+  color: lime; }
+  .kumquat-terminal.theme-retro section.terminal .code {
+    border-top: limegreen solid;
+    color: #538e53; }
+    @media (min-width: 720px) {
+      .kumquat-terminal.theme-retro section.terminal .code {
+        border-left: solid limegreen;
+        border-top: none !important; } }
+
+.kumquat-terminal.theme-retro .line:before {
+  content: '$ ';
+  color: lime; }
+
+.kumquat-terminal.theme-retro .ansi-bold {
+  font-weight: bold; }
+
+.kumquat-terminal.theme-retro .ansi-dim {
+  color: green; }
+
+.kumquat-terminal.theme-retro .ansi-italic {
+  font-style: italic; }
+
+.kumquat-terminal.theme-retro .ansi-underline {
+  text-decoration: underline; }
+
+.kumquat-terminal.theme-retro .ansi-inverse {
+  background-color: limegreen;
+  color: black; }
+
+.kumquat-terminal.theme-retro .ansi-strikethrough {
+  text-decoration: line-through; }
+
+.kumquat-terminal.theme-retro .ansi-black {
+  color: darkgreen; }
+
+.kumquat-terminal.theme-retro .ansi-red {
+  color: #cd0000; }
+
+.kumquat-terminal.theme-retro .ansi-green {
+  color: forestgreen; }
+
+.kumquat-terminal.theme-retro .ansi-yellow {
+  color: #cdcd00; }
+
+.kumquat-terminal.theme-retro .ansi-blue {
+  color: #492ee1; }
+
+.kumquat-terminal.theme-retro .ansi-magenta {
+  color: #F23064; }
+
+.kumquat-terminal.theme-retro .ansi-cyan {
+  color: #6ED0B0; }
+
+.kumquat-terminal.theme-retro .ansi-gray {
+  color: green; }
+
+.kumquat-terminal.theme-retro .ansi-bgBlack {
+  color: lime;
+  background-color: black; }
+
+.kumquat-terminal.theme-retro .ansi-bgRed {
+  color: limegreen;
+  background-color: #cd0000; }
+
+.kumquat-terminal.theme-retro .ansi-bgGreen {
+  color: limegreen;
+  background-color: green; }
+
+.kumquat-terminal.theme-retro .ansi-bgYellow {
+  color: black;
+  background-color: #cdcd00; }
+
+.kumquat-terminal.theme-retro .ansi-bgBlue {
+  color: limegreen;
+  background-color: #492ee1; }
+
+.kumquat-terminal.theme-retro .ansi-bgMagenta {
+  color: limegreen;
+  background-color: #F23064; }
+
+.kumquat-terminal.theme-retro .ansi-bgCyan {
+  color: black;
+  background-color: #6ED0B0; }
+
+.kumquat-terminal.theme-retro .ansi-bgWhite {
+  color: black;
+  background-color: limegreen; }
+
+.kumquat-terminal.theme-retro .ansi-bgGray {
+  color: black;
+  background-color: green; }
+
 /*!
  * Copyright (c) 2016 Israel Roldan
  * Licensed under the MIT license
@@ -226,4 +330,4 @@
   color: gainsboro;
   background-color: grey; }
 
-/*# sourceMappingURL=kumquat.css.map */
+/*# sourceMappingURL=kumquat-retro.css.map */

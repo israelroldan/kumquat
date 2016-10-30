@@ -1,0 +1,147 @@
+/*
+ * Retro theme - variables
+ */
+$kt-retro-background: black;
+$kt-retro-color: lime;
+$kt-retro-accent: limegreen;
+$kt-retro-prompt-character: '$';
+
+/*
+ * Retro theme - styles
+ */
+$kt-header-background: #E0E8F0;
+$kt-header-color: #2b3035;
+
+$kt-terminal-background: $kt-retro-background;
+$kt-terminal-color: $kt-retro-color;
+$kt-terminal-divider: $kt-retro-accent;
+$kt-terminal-prompt-color: $kt-retro-accent;
+$kt-terminal-prompt-character: $kt-retro-prompt-character;
+$kt-terminal-code-color: mix(grey,darken($kt-retro-accent, 12%));
+
+.kumquat-terminal.theme-retro {
+  header {
+    background: $kt-header-background;
+    color: $kt-header-color;
+  }
+  section.terminal {
+    background: $kt-terminal-background;
+    color: $kt-terminal-color;
+
+    .code {
+      border-top: $kt-terminal-divider solid;
+      color: $kt-terminal-code-color;
+      @media (min-width: 720px) {
+        border-left: solid $kt-terminal-divider;
+        border-top: none!important;
+      }
+    }
+  }
+
+  .line:before {
+    content: '$ ';
+    color: lime;
+  }
+
+  .ansi-bold {
+    font-weight: bold;
+  }
+
+  .ansi-dim {
+    color: green;
+  }
+
+  .ansi-italic {
+    font-style: italic;
+  }
+
+  .ansi-underline {
+    text-decoration: underline;
+  }
+
+  .ansi-inverse {
+    background-color: limegreen;
+    color: black;
+  }
+
+  .ansi-strikethrough {
+    text-decoration: line-through;
+  }
+
+  .ansi-black {
+    color: darkgreen;
+  }
+
+  .ansi-red {
+    color: #cd0000;
+  }
+
+  .ansi-green {
+    color: forestgreen;
+  }
+
+  .ansi-yellow {
+    color: #cdcd00;
+  }
+
+  .ansi-blue {
+    color: #492ee1;
+  }
+
+  .ansi-magenta {
+    color: #F23064;
+  }
+
+  .ansi-cyan {
+    color: #6ED0B0;
+  }
+
+  .ansi-gray {
+    color: green;
+  }
+
+  .ansi-bgBlack {
+    color: lime;
+    background-color: black;
+  }
+
+  .ansi-bgRed {
+    color: limegreen;
+    background-color: #cd0000;
+  }
+
+  .ansi-bgGreen {
+    color: limegreen;
+    background-color: green;
+  }
+
+  .ansi-bgYellow {
+    color: black;
+    background-color: #cdcd00;
+  }
+
+  .ansi-bgBlue {
+    color: limegreen;
+    background-color: #492ee1;
+  }
+
+  .ansi-bgMagenta {
+    color: limegreen;
+    background-color: #F23064;
+  }
+
+  .ansi-bgCyan {
+    color: black;
+    background-color: #6ED0B0;
+  }
+
+  .ansi-bgWhite {
+    color: black;
+    background-color: limegreen;
+  }
+
+  .ansi-bgGray {
+    color: black;
+    background-color: green;
+  }
+}

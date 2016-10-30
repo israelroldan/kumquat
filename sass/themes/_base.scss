@@ -1,0 +1,147 @@
+/*
+ * Default theme - variables
+ */
+$kt-default-background: #30353A !default;
+$kt-default-color: gainsboro;
+$kt-default-accent: #4C9F87 !default;
+$kt-default-prompt-character: '$';
+
+/*
+ * Default theme - styles
+ */
+$kt-header-background: $kt-default-background;
+$kt-header-color: $kt-default-color;
+
+$kt-terminal-background: $kt-default-background;
+$kt-terminal-color: $kt-default-color;
+$kt-terminal-divider: darken($kt-default-accent, 25%);
+$kt-terminal-prompt-color: $kt-default-accent;
+$kt-terminal-prompt-character: $kt-default-prompt-character;
+$kt-terminal-code-color: mix(grey,darken($kt-default-accent, 12%));
+
+.kumquat-terminal {
+  header {
+    background: $kt-header-background;
+    color: $kt-header-color;
+  }
+  section.terminal {
+    background: $kt-terminal-background;
+    color: $kt-terminal-color;
+
+    .code {
+      border-top: $kt-terminal-divider solid;
+      color: $kt-terminal-code-color;
+      @media (min-width: 720px) {
+        border-left: solid $kt-terminal-divider;
+        border-top: none!important;
+      }
+    }
+  }
+
+  .line:before {
+    content: $kt-terminal-prompt-character + ' ';
+    color: $kt-terminal-prompt-color;
+  }
+
+  .ansi-bold {
+    font-weight: bold;
+  }
+
+  .ansi-dim {
+    color: grey;
+  }
+
+  .ansi-italic {
+    font-style: italic;
+  }
+
+  .ansi-underline {
+    text-decoration: underline;
+  }
+
+  .ansi-inverse {
+    background-color: $kt-terminal-color;
+    color: $kt-terminal-background;
+  }
+
+  .ansi-strikethrough {
+    text-decoration: line-through;
+  }
+
+  .ansi-black {
+    color: dimgrey;
+  }
+
+  .ansi-red {
+    color: #D24858;
+  }
+
+  .ansi-green {
+    color: #62997A;
+  }
+
+  .ansi-yellow {
+    color: #F4F090;
+  }
+
+  .ansi-blue {
+    color: #7595B3;
+  }
+
+  .ansi-magenta {
+    color: #F23064;
+  }
+
+  .ansi-cyan {
+    color: #6ED0B0;
+  }
+
+  .ansi-gray {
+    color: grey;
+  }
+
+  .ansi-bgBlack {
+    color: $kt-terminal-color;
+    background-color: dimgrey;
+  }
+
+  .ansi-bgRed {
+    color: $kt-terminal-color;
+    background-color: #D24858;
+  }
+
+  .ansi-bgGreen {
+    color: $kt-terminal-color;
+    background-color: #62997A;
+  }
+
+  .ansi-bgYellow {
+    color: $kt-terminal-background;
+    background-color: #F4F090;
+  }
+
+  .ansi-bgBlue {
+    color: $kt-terminal-color;
+    background-color: #7595B3;
+  }
+
+  .ansi-bgMagenta {
+    color: $kt-terminal-color;
+    background-color: #F23064;
+  }
+
+  .ansi-bgCyan {
+    color: $kt-terminal-background;
+    background-color: #6ED0B0;
+  }
+
+  .ansi-bgWhite {
+    color: $kt-terminal-background;
+    background-color: $kt-terminal-color;
+  }
+
+  .ansi-bgGray {
+    color: $kt-terminal-color;
+    background-color: grey;
+  }
+}

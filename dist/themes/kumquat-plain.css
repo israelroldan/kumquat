@@ -1,0 +1,301 @@
+/*!
+ * Copyright (c) 2016 Israel Roldan
+ * Licensed under the MIT license
+*/
+/* Main window */
+/* Header */
+/* Terminal */
+/*** Kumquat ***/
+@keyframes blink {
+  25% {
+    opacity: 1; }
+  50% {
+    opacity: 0; }
+  75% {
+    opacity: 1; } }
+
+.kumquat-terminal {
+  text-align: left;
+  height: 360px;
+  margin: auto;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  border-radius: 10px; }
+  .kumquat-terminal.hard-corners {
+    border-radius: 0; }
+    .kumquat-terminal.hard-corners header {
+      border-radius: 0; }
+  .kumquat-terminal header {
+    height: 30px;
+    border-radius: 10px 10px 0 0;
+    padding-left: 20px; }
+    .kumquat-terminal header .btn {
+      width: 12px;
+      height: 12px;
+      margin: 10px 4px 0 0;
+      display: inline-block;
+      border-radius: 10px; }
+      .kumquat-terminal header .btn.green {
+        background: #3BB662; }
+      .kumquat-terminal header .btn.yellow {
+        background: #E5C30F; }
+      .kumquat-terminal header .btn.red {
+        background: #E75448; }
+    .kumquat-terminal header .title {
+      display: inline-block;
+      margin-top: 5px;
+      width: calc(100% - 100px);
+      text-align: center;
+      font-family: system, -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Lucida Grande", monospace; }
+  .kumquat-terminal section.terminal {
+    padding: 10px;
+    box-sizing: border-box;
+    position: absolute;
+    top: 30px;
+    bottom: 0;
+    overflow: auto;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: 100%;
+    font-family: Menlo, Monaco, "Consolas", "Courier New", "Courier", monospace; }
+    .kumquat-terminal section.terminal .cli, .kumquat-terminal section.terminal .code {
+      display: block;
+      -ms-flex: 1;
+      flex: 1;
+      margin-left: 0;
+      max-width: 100%;
+      width: 100%; }
+    .kumquat-terminal section.terminal .cli {
+      font-size: 15px;
+      overflow: scroll; }
+      .kumquat-terminal section.terminal .cli .cursor {
+        opacity: 1;
+        animation: blink 1s infinite; }
+    .kumquat-terminal section.terminal .code {
+      overflow: scroll;
+      margin-top: 5px;
+      padding-top: 5px; }
+    .kumquat-terminal section.terminal.no-cli .cli {
+      visibility: hidden;
+      display: none; }
+    .kumquat-terminal section.terminal.no-cli .code {
+      border-top: none;
+      padding-top: 0; }
+    .kumquat-terminal section.terminal.no-code .code {
+      visibility: hidden;
+      display: none; }
+
+@media (max-width: 269px) {
+  .kumquat-terminal header .title {
+    visibility: hidden;
+    display: none; } }
+
+@media (min-width: 720px) {
+  .kumquat-terminal section.terminal {
+    -ms-flex-direction: row;
+    flex-direction: row;
+    width: 100%; }
+    .kumquat-terminal section.terminal .cli, .kumquat-terminal section.terminal .code {
+      margin-bottom: inherit;
+      padding: 0 16px; }
+    .kumquat-terminal section.terminal .code {
+      border-top: none;
+      padding-top: 0; }
+    .kumquat-terminal section.terminal.no-cli .cli {
+      visibility: hidden;
+      display: none; }
+    .kumquat-terminal section.terminal.no-cli .code {
+      border-left: none;
+      padding-left: 0; } }
+
+/** Construct the theme styles **/
+/*
+ * Default theme - variables
+ */
+/*
+ * Default theme - styles
+ */
+.kumquat-terminal header {
+  background: #30353A;
+  color: gainsboro; }
+
+.kumquat-terminal section.terminal {
+  background: #30353A;
+  color: gainsboro; }
+  .kumquat-terminal section.terminal .code {
+    border-top: #23493e solid;
+    color: #5c7b72; }
+    @media (min-width: 720px) {
+      .kumquat-terminal section.terminal .code {
+        border-left: solid #23493e;
+        border-top: none !important; } }
+
+.kumquat-terminal .line:before {
+  content: "$ ";
+  color: #4C9F87; }
+
+.kumquat-terminal .ansi-bold {
+  font-weight: bold; }
+
+.kumquat-terminal .ansi-dim {
+  color: grey; }
+
+.kumquat-terminal .ansi-italic {
+  font-style: italic; }
+
+.kumquat-terminal .ansi-underline {
+  text-decoration: underline; }
+
+.kumquat-terminal .ansi-inverse {
+  background-color: gainsboro;
+  color: #30353A; }
+
+.kumquat-terminal .ansi-strikethrough {
+  text-decoration: line-through; }
+
+.kumquat-terminal .ansi-black {
+  color: dimgrey; }
+
+.kumquat-terminal .ansi-red {
+  color: #D24858; }
+
+.kumquat-terminal .ansi-green {
+  color: #62997A; }
+
+.kumquat-terminal .ansi-yellow {
+  color: #F4F090; }
+
+.kumquat-terminal .ansi-blue {
+  color: #7595B3; }
+
+.kumquat-terminal .ansi-magenta {
+  color: #F23064; }
+
+.kumquat-terminal .ansi-cyan {
+  color: #6ED0B0; }
+
+.kumquat-terminal .ansi-gray {
+  color: grey; }
+
+.kumquat-terminal .ansi-bgBlack {
+  color: gainsboro;
+  background-color: dimgrey; }
+
+.kumquat-terminal .ansi-bgRed {
+  color: gainsboro;
+  background-color: #D24858; }
+
+.kumquat-terminal .ansi-bgGreen {
+  color: gainsboro;
+  background-color: #62997A; }
+
+.kumquat-terminal .ansi-bgYellow {
+  color: #30353A;
+  background-color: #F4F090; }
+
+.kumquat-terminal .ansi-bgBlue {
+  color: gainsboro;
+  background-color: #7595B3; }
+
+.kumquat-terminal .ansi-bgMagenta {
+  color: gainsboro;
+  background-color: #F23064; }
+
+.kumquat-terminal .ansi-bgCyan {
+  color: #30353A;
+  background-color: #6ED0B0; }
+
+.kumquat-terminal .ansi-bgWhite {
+  color: #30353A;
+  background-color: gainsboro; }
+
+.kumquat-terminal .ansi-bgGray {
+  color: gainsboro;
+  background-color: grey; }
+
+/*
+ * Plain theme - variables
+ */
+/*
+ * Plain theme - variables
+ */
+.kumquat-terminal.theme-plain {
+  border: 1px solid darkgrey; }
+  .kumquat-terminal.theme-plain header {
+    background: white;
+    color: dimgrey; }
+  .kumquat-terminal.theme-plain section.terminal {
+    border-top: 1px solid darkgrey;
+    background: white;
+    color: dimgrey; }
+    .kumquat-terminal.theme-plain section.terminal .code {
+      border-top: darkgrey solid;
+      color: #858585; }
+      @media (min-width: 720px) {
+        .kumquat-terminal.theme-plain section.terminal .code {
+          border-left: solid darkgrey;
+          border-top: none !important; } }
+  .kumquat-terminal.theme-plain .line:before {
+    content: '$ ';
+    color: darkgrey; }
+  .kumquat-terminal.theme-plain .ansi-bold {
+    font-weight: bold; }
+  .kumquat-terminal.theme-plain .ansi-dim {
+    color: dimgrey; }
+  .kumquat-terminal.theme-plain .ansi-italic {
+    font-style: italic; }
+  .kumquat-terminal.theme-plain .ansi-underline {
+    text-decoration: underline; }
+  .kumquat-terminal.theme-plain .ansi-inverse {
+    background-color: dimgrey;
+    color: white; }
+  .kumquat-terminal.theme-plain .ansi-strikethrough {
+    text-decoration: line-through; }
+  .kumquat-terminal.theme-plain .ansi-black {
+    color: dimgrey; }
+  .kumquat-terminal.theme-plain .ansi-red {
+    color: #D24858; }
+  .kumquat-terminal.theme-plain .ansi-green {
+    color: #62997A; }
+  .kumquat-terminal.theme-plain .ansi-yellow {
+    color: goldenrod; }
+  .kumquat-terminal.theme-plain .ansi-blue {
+    color: #7595B3; }
+  .kumquat-terminal.theme-plain .ansi-magenta {
+    color: #F23064; }
+  .kumquat-terminal.theme-plain .ansi-cyan {
+    color: #6ED0B0; }
+  .kumquat-terminal.theme-plain .ansi-gray {
+    color: dimgrey; }
+  .kumquat-terminal.theme-plain .ansi-bgBlack {
+    color: white;
+    background-color: dimgrey; }
+  .kumquat-terminal.theme-plain .ansi-bgRed {
+    color: white;
+    background-color: #D24858; }
+  .kumquat-terminal.theme-plain .ansi-bgGreen {
+    color: white;
+    background-color: #62997A; }
+  .kumquat-terminal.theme-plain .ansi-bgYellow {
+    color: white;
+    background-color: goldenrod; }
+  .kumquat-terminal.theme-plain .ansi-bgBlue {
+    color: white;
+    background-color: #7595B3; }
+  .kumquat-terminal.theme-plain .ansi-bgMagenta {
+    color: white;
+    background-color: #F23064; }
+  .kumquat-terminal.theme-plain .ansi-bgCyan {
+    color: white;
+    background-color: #6ED0B0; }
+  .kumquat-terminal.theme-plain .ansi-bgWhite {
+    color: dimgrey;
+    background-color: white; }
+  .kumquat-terminal.theme-plain .ansi-bgGray {
+    color: white;
+    background-color: dimgrey; }
+
+/*# sourceMappingURL=kumquat-plain.css.map */

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>kumquat ⠗ css-only examples</title>
+    <link rel="icon" href="favicon.png">
+    <link rel="stylesheet" href="dist/kumquat.css">
+    <link rel="stylesheet" href="example.css">
+</head>
+<body>
+    <h1>CSS-only examples</h1>
+    <p>
+        The following examples are constructed using only markup and the <code>kumquat.css</code> file.
+    </p>
+    <div class="minimal">
+        <h2>Minimal example</h2>
+        <p><a href="https://www.npmjs.com/package/jade">jade / pug</a> template:</p>
+        <pre>.kumquat-terminal
+    header
+      .btn.green
+      .btn.yellow
+      .btn.red
+      .title
+    section.terminal
+      .cli
+        .line
+          .cursor</pre>
+        <p><a href="http://emmet.io/">emmet</a> expression:</p>
+        <pre>.kumquat-terminal>(header>.btn.green+.btn.yellow+.btn.red+.title{kumquat example})+(section.terminal>.cli>.line{type}>span.cursor))</pre>
+        <div class="kumquat-terminal">
+            <header>
+                <div class="btn green"></div>
+                <div class="btn yellow"></div>
+                <div class="btn red"></div>
+                <div class="title">kumquat example</div>
+            </header>
+            <section class="terminal">
+                <div class="cli">
+                    <div class="line">type<span class="cursor">_</span></div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div class="with-source-code-panel">
+        <h2>With source code panel</h2>
+        <p><a href="https://www.npmjs.com/package/jade">jade / pug</a> template:</p>
+        <pre>.kumquat-terminal
+    header
+      .btn.green
+      .btn.yellow
+      .btn.red
+      .title
+    section.terminal
+      .cli
+        .line
+          .cursor
+      .code</pre>
+        <p><a href="http://emmet.io/">emmet</a> expression:</p>
+        <pre>.kumquat-terminal>(header>.btn.green+.btn.yellow+.btn.red+.title{kumquat example})+(section.terminal>(.cli>.line{type}>span.cursor)+(.code{Code goes here}))</pre>
+        <div class="kumquat-terminal">
+            <header>
+                <div class="btn green"></div>
+                <div class="btn yellow"></div>
+                <div class="btn red"></div>
+                <div class="title">kumquat example</div>
+            </header>
+            <section class="row terminal">
+                <div class="column cli">
+                    <div class="line">type<span class="cursor">_</span></div>
+                </div>
+                <div class="column code">
+                    Code goes here
+                </div>
+            </section>
+        </div>
+    </div>
+    <div class="hard-corners example">
+        <h2>Hard corners</h2>
+        <p><a href="https://www.npmjs.com/package/jade">jade / pug</a> template:</p>
+        <pre>.kumquat-terminal.hard-corners
+    header
+      .btn.green
+      .btn.yellow
+      .btn.red
+      .title
+    section.terminal
+      .cli
+        .line
+          .cursor
+      .code</pre>
+        <p><a href="http://emmet.io/">emmet</a> expression:</p>
+        <pre>.kumquat-terminal.hard-corners>(header>.btn.green+.btn.yellow+.btn.red+.title{kumquat example})+(section.terminal>(.cli>.line{type}>span.cursor)+(.code{Code goes here}))</pre>
+        <div class="kumquat-terminal hard-corners">
+            <header>
+                <div class="btn green"></div>
+                <div class="btn yellow"></div>
+                <div class="btn red"></div>
+                <div class="title">kumquat example</div>
+            </header>
+            <section class="row terminal">
+                <div class="column cli">
+                    <div class="line">type<span class="cursor">_</span></div>
+                </div>
+                <div class="column code">
+                    Code goes here
+                </div>
+            </section>
+        </div>
+    </div>
+    <footer>
+        all these examples are 100% responsive<br />
+        🍊 kumquat looks great on mobile devices!
+    </footer>
+</body>
+</html>

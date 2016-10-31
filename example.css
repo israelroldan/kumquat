@@ -1,0 +1,17 @@
+/*
+    These styles are only relevant for the example page, not related to the examples themselves.
+*/
+body {color: #2b3035; font-family: system, -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Lucida Grande", monospace;}
+h1:after {content: ' 🍊'; color: orangered; }
+h2:before {content: '⠗ '; color: orangered; }
+code, pre {background-color: whitesmoke;}
+code {display:inline-block; line-height: 25px; padding: 0 5px; }
+pre {margin:20px; padding:20px; border-left: solid thick darkorange;overflow-x:scroll;}
+.kumquat-terminal { height: 485px; }
+footer {margin-top: 20px; padding: 35px; text-align: center; font-size: 15px;}
+a {text-decoration: none;color:black;}
+a:hover {color:darkorange;}
+ol {counter-reset: item;}
+ol li {display:block;}
+ol li:before { content: counter(item)"  "; counter-increment: item; color: orangered; font-size: 12px; font-weight: bold;}
+footer {margin-top: 20px; padding: 35px; text-align: center; font-size: 15px;}

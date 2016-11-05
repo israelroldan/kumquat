@@ -39,16 +39,16 @@
                 ${name === 'default' ? 'This is the default theme, no extra files or classes are needed besides <code>kumquat.css</code>' : 'How to use: <ol><li>Include <code>themes/kumquat-' + name + '.css</code></li><li>Add the class <code>theme-' + name + '</code> to your <code>.kumquat-terminal</code> element</li></ol>' }
             </p>
         <div class="kumquat-terminal theme-${name}">
-            <header>
+            <div class="header">
                 <div class="btn green"></div>
                 <div class="btn yellow"></div>
                 <div class="btn red"></div>
                 <div class="title">kumquat - theme: ${name}</div>
-            </header>
-            <section class="terminal">
+            </div>
+            <div class="terminal">
                 <div class="cli"></div>
                 <div class="code">Code goes here</div>
-            </section>
+            </div>
         </div>`;
             document.getElementsByClassName('examples')[0].appendChild(kt);
         });
@@ -78,7 +78,7 @@
                 "bgCyan",
                 "bgWhite",
                 "bgGray"
-            ].forEach((c) => target.innerHTML += (`<div class="line">${c}: <span class="ansi-${c}">${c}</span></div>`));
+            ].forEach((c) => target.innerHTML += (`<div class="line with-prompt">${c}: <span class="ansi-${c}">${c}</span></div>`));
         });
     </script>
 </body>

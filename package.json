@@ -1,6 +1,6 @@
 {
   "name": "kumquat",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "A web showcase for your terminal apps",
   "main": "src/kumquat.js",
   "dependencies": {},
@@ -10,6 +10,7 @@
     "browserify": "^13.1.1",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
+    "gulp-connect": "^5.0.0",
     "gulp-sass": "^2.3.2",
     "gulp-sourcemaps": "^2.2.0",
     "vinyl-buffer": "^1.0.0",

@@ -5,13 +5,13 @@ Pull requests are always welcome!
 ## How to contribute
 Fork, then clone your repo:
 
-    git clone git@github.com:your-username/tewesh.git
+    git clone git@github.com:your-username/kumquat.git
     
 Make sure the tests pass and note the coverage percentage:
 
     npm test
 
-If they don't, please check our [issues page](https://github.com/israelroldan/tewesh/issues) for known issues that
+If they don't, please check our [issues page](https://github.com/israelroldan/kumquat/issues) for known issues that
 may cause the test failure.
 
 Make your change. Add tests for your change. Make the tests pass again and make sure to keep (or improve) the coverage percentage:

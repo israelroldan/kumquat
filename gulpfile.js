@@ -9,6 +9,7 @@ const watchify = require('watchify');
 const babel = require('babelify');
 const sass = require('gulp-sass');
 const autoprefixer = require('gulp-autoprefixer');
+const connect = require('gulp-connect');
 
 function scripts(watch) {
     var bundler = watchify(browserify('./src/kumquat.js', { debug: true }).transform(babel.configure({
@@ -50,11 +51,10 @@ gulp.task('sass', function() {
 gulp.task('scripts', function() { return scripts(); });
 gulp.task('watch-scripts', function() { return scripts(true); });
 
-gulp.task('watch', function () {
+gulp.task('watch', ['sass', 'scripts'], function () {
+    connect.server();
     gulp.watch('./sass/**/*.scss', ['sass']);
     gulp.watch('./src/**/*.js', ['watch-scripts']);
 });
-
-
 
 gulp.task('default', ['watch']);

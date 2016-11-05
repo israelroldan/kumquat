@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>🍊 kumquat ⠗ markup playgorund</title>
+    <link rel="stylesheet" href="../dist/kumquat.css">
+    <script src="../dist/kumquat.js"></script>
+</head>
+<body>
+    <div class="kumquat-terminal" data-kumquat-title="completely empty">
+    </div>
+    <div class="kumquat-terminal" data-kumquat-title="partial">
+        <div class="header">
+            <div class="title">something</div>
+        </div>
+        <div class="terminal"></div>
+    </div>
+    <div class="kumquat-terminal"
+           data-kumquat-title="no code"
+           data-kumquat-code="false">
+    </div>
+    <div class="kumquat-terminal"
+         data-kumquat-title="custom code"
+         data-kumquat-code="Hi there!">
+    </div>
+    <div class="kumquat-terminal"
+           data-kumquat-title="autoload code"
+           data-kumquat-code-src="example.sh">
+    </div>
+    <div class="kumquat-terminal"
+           data-kumquat-title="autoload script"
+           data-kumquat-script-src="example.ks"></div>
+<script>
+    kumquat.init();
+</script>
+</body>
+</html>

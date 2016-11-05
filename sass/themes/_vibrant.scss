@@ -20,11 +20,11 @@ $kt-terminal-prompt-character: $kt-vibrant-prompt-character;
 $kt-terminal-code-color: mix(grey,darken($kt-vibrant-accent, 12%));
 
 .kumquat-terminal.theme-vibrant {
-  header {
+  .header {
     background: $kt-header-background;
     color: $kt-header-color;
   }
-  section.terminal {
+  .terminal {
     background: $kt-terminal-background;
     color: $kt-terminal-color;
 
@@ -38,9 +38,9 @@ $kt-terminal-code-color: mix(grey,darken($kt-vibrant-accent, 12%));
     }
   }
 
-  .line:before {
-    content: '$ ';
-    color: orangered;
+  .line.with-prompt:before {
+    content: $kt-terminal-prompt-character + ' ';
+    color: $kt-terminal-prompt-color;
   }
 
   .ansi-bold {

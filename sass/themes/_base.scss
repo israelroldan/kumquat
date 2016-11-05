@@ -20,11 +20,11 @@ $kt-terminal-prompt-character: $kt-default-prompt-character;
 $kt-terminal-code-color: mix(grey,darken($kt-default-accent, 12%));
 
 .kumquat-terminal {
-  header {
+  .header {
     background: $kt-header-background;
     color: $kt-header-color;
   }
-  section.terminal {
+  .terminal {
     background: $kt-terminal-background;
     color: $kt-terminal-color;
 
@@ -38,7 +38,7 @@ $kt-terminal-code-color: mix(grey,darken($kt-default-accent, 12%));
     }
   }
 
-  .line:before {
+  .line.with-prompt:before {
     content: $kt-terminal-prompt-character + ' ';
     color: $kt-terminal-prompt-color;
   }

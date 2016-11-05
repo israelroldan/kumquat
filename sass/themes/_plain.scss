@@ -22,11 +22,11 @@ $kt-terminal-code-color: mix(grey,darken($kt-plain-accent, 12%));
 .kumquat-terminal.theme-plain {
   border: 1px solid $kt-terminal-divider;
 
-  header {
+  .header {
     background: $kt-header-background;
     color: $kt-header-color;
   }
-  section.terminal {
+  .terminal {
     border-top: 1px solid $kt-terminal-divider;
     background: $kt-terminal-background;
     color: $kt-terminal-color;
@@ -41,9 +41,9 @@ $kt-terminal-code-color: mix(grey,darken($kt-plain-accent, 12%));
     }
   }
 
-  .line:before {
-    content: '$ ';
-    color: darkgrey;
+  .line.with-prompt:before {
+    content: $kt-terminal-prompt-character + ' ';
+    color: $kt-terminal-prompt-color;
   }
 
   .ansi-bold {

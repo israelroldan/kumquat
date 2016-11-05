@@ -5,37 +5,49 @@ A web showcase for your terminal apps
 
 ## Getting Started
 
-**Quick start using bower**
+**Install**
 
-1. Install using bower
+Install using your package manager of choice:
 
-        bower install kumquat
+    $ bower install kumquat --save
+        or 
+    $ npm install kumquat --save
+        or 
+    $ yarn add kumquat
+        
+**Include in your project**
+
+Include `dist/kumquat.js` and `dist/kumquat.css`
+
+    <link rel="stylesheet" href="bower_components/kumquat/dist/kumquat.css">
+    <script src="bower_component/kumquat/dist/kumquat.js">
+        or
+    <link rel="stylesheet" href="node_modules/kumquat/dist/kumquat.css">
+    <script src="node_modules/kumquat/dist/kumquat.js">
+
+**Configure an instance**
+
+Use `kumquat.create` to create a new instance, use 'renderTo' to specify the parent element.
+
+    <script>
+        var shwocase = kumquat.create({
+            title: 'my-awesome-cli',
+            renderTo: document.body
+        });
+    </script>
     
-2. Create `kumquat-example.html`:
-        
-        <html>
-        <head>
-            <title>kumquat example</title>
-            <link rel="stylesheet" href="bower-components/kumquat/dist/kumquat.css">
-        </head>
-        <body>
-            <div class="kumquat-terminal">
-                <header>
-                    <div class="btn green"></div>
-                    <div class="btn yellow"></div>
-                    <div class="btn red"></div>
-                    <div class="title">kumquat example</div>
-                </header>
-                <section class="terminal">
-                    <div class="cli">
-                        <div class="line">type<span class="cursor">_</span></div>
-                    </div>
-                </section>
-            </div>
-        </body>
-        </html>
-        
-3. Open `kumquat-example.html` in your browser (no server required!).
+Open your browser, you'll be greeted by your kumquat instance:
+
+![kumquat screenshot](assets/screenshot_2.png)
+
+**Change its contents using the programmatic API**
+
+For example:
+
+    <script>
+        showcase.code('This is an example');
+        showcase.type('npm install my-awesome-cli');
+    </script>
 
 ## Contributing
 

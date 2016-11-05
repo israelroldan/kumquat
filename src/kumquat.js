@@ -1,161 +1,151 @@
-/*!
- * Terminal Window widget
- * Copyright (c) 2016 Israel Roldan
- * Licensed under the MIT license
- */
+const dom = require('./lib/DOMUtils');
+const KSParser = require('./lib/KSParser');
+const Robot = require('./lib/Robot');
+const Utils = require('./lib/Utils');
 
-class TerminalWindow {
-  constructor(opts) {
-    Object.assign(this, opts);
-
-    //TODO: Do this in a better way
-    cliEl = document.getElementsByClassName(this.cliCls)[0];
-    codeEl = document.getElementsByClassName(this.codeCls)[0];
-  }
-
-  _getJSON(url, onSuccess, onError) {
-    var request = new XMLHttpRequest();
-    request.open('GET', url, true);
-
-    request.onload = function () {
-      if (request.status >= 200 && request.status < 400) {
-        onSuccess(JSON.parse(request.responseText));
-      } else {
-        onError(request);
-      }
-    };
-
-    request.onerror = onError;
-
-    request.send();
-  }
-
-  line(instruction, done) {
-    var me = this;
-    me.cliEl.innerHTML = me.cliEl.innerHTML.replace('█', '');
-    me.cliEl.innerHTML = me.cliEl.innerHTML + '<br>' + ((instruction[1] !== false) ? me.delimiter : '') + '█';
-    if (done) {
-      done();
-    }
-  }
-
-  loadScript(name, done) {
-    var me = this;
-    if (!name.endsWith('.json')) {
-      name += '.json';
-    }
-    me.scriptName = me.scriptsPath + '/' + name;
-    me._getJSON(me.scriptName, function (object) {
-      me._script = object.script;
-      me.codeEl.innerHTML = '<pre data-src="' + me.scriptsPath + '/' + name.slice(0, -2) + '"></pre>';
-      done();
-    });
-  }
-
-  prompt(instruction, done) {
-    var me = this;
-    me.cliEl.innerHTML = me.cliEl.innerHTML.replace('█', '');
-    me.cliEl.innerHTML = me.cliEl.innerHTML + ((instruction[1] !== false) ? me.delimiter : '') + ' █';
-    if (done) {
-      done();
-    }
-  }
-
-  processScript(script) {
-    var me = this;
-    me.script = (me._script || script || []).slice();
-    me.processing = me.scriptName + new Date().getTime();
-    me.cancel = false;
-    me.cliEl.innerHTML = '';
-
-    function next() {
-      var instruction = me.script.shift();
-      if (instruction) {
-        me[instruction[0]](instruction, next);
-        me.cliEl.scrollTop = me.cliEl.scrollHeight;
-      } else {
-        me.processing = false;
-      }
+class kumquat {
+    static create (opts) {
+        let instance = new kumquat(opts);
+        instance.render();
+        return instance;
     }
 
-    next();
-  }
+    static init (parentNode = 'body') {
+        parentNode = dom.toEl(parentNode);
 
-  return(instruction, done) {
-    var me = this;
-    me.cliEl.innerHTML = me.cliEl.innerHTML.slice(0, -(instruction[1] + 1));
-    if (done) {
-      done();
+        parentNode.querySelectorAll('.kumquat-terminal').forEach(kumquat._from);
     }
-  }
 
-  send(instruction, done) {
-    var me = this;
-    me.cliEl.innerHTML = me.cliEl.innerHTML.replace('█', '');
-    me.cliEl.innerHTML += instruction[1];
-    if (done) {
-      done();
-    }
-  }
+    static _from (node) {
+        let dataset = node.dataset;
+        let cfg = {
+            renderTo: node
+        };
 
-  sleep(instruction, done) {
-    var me = this;
-    me.wait = instruction[1] || 500;
-    setTimeout(function () {
-      me.wait = 0;
-      if (done) {
-        done();
-      }
-    }, me.wait);
-  }
-
-  standby(clearScript) {
-    this.cancel = true;
-    this.processing = false;
-    if (clearScript) {
-      this.script = this._script = [];
-    }
-  }
-
-  type(instruction, done) {
-    var me = this;
-    var remainder = instruction[1].split('');
-    var script = me.processing;
-
-    function go() {
-      var deviation = me.speed * (1 - Math.random() / 2);
-      me.wait = deviation;
-      setTimeout(function () {
-        me.wait = 0;
-        var out = remainder.splice(0, 1);
-        if (me.cancel === true || me.processing !== script) {
-          return;
+        if (dataset.kumquatTitle) {
+            cfg.title = dataset.kumquatTitle;
         }
-        me.cliEl.innerHTML = me.cliEl.innerHTML.replace('█', '');
-        me.cliEl.innerHTML = me.cliEl.innerHTML + out + '█';
-        if (remainder.length < 1) {
-          if (done) {
-            done();
-          }
-          return;
-        } else if (me.cancel === false) {
-          go();
+
+        if (dataset.kumquatCode) {
+            cfg.code = dataset.kumquatCode === 'false' ? false : dataset.kumquatCode;
         }
-      }, deviation);
+
+        if (dataset.kumquatCodeSrc) {
+            cfg.codeSrc = dataset.kumquatCodeSrc;
+        }
+
+        if (dataset.kumquatScriptSrc) {
+            cfg.scriptSrc = dataset.kumquatScriptSrc;
+        }
+
+        kumquat.create(cfg);
     }
 
-    if (me.cancel === false) {
-      go();
+    // -------------------------------------
+
+    constructor (cfg) {
+        this.config = Object.assign({}, {
+            code: '',
+            theme: 'default',
+            renderTo: 'body'
+        }, cfg);
     }
-  }
+
+    set title (title) {
+        if (title) {
+            this._title = title;
+            this._ktTitleEl.innerHTML = this._title;
+        }
+    }
+
+    get title () {
+        return this._title;
+    }
+
+    get robot () {
+        if (!this._robot) {
+            this._robot = new Robot({
+                target: this._ktCliEl
+            });
+        }
+        return this._robot;
+    }
+
+    render () {
+        let me = this;
+        let cfg = me.config;
+
+        cfg.renderToEl = dom.toEl(cfg.renderTo);
+
+        if (!cfg.renderToEl) {
+            throw Error(`Selector ${cfg.renderTo} is not valid.`);
+        }
+
+
+        if (cfg.renderToEl === document.body || !dom.hasCls(cfg.renderToEl, 'kumquat-terminal')) {
+            me._ktEl = dom.create(`${cfg.id ? '#' + cfg.id : ''}.kumquat-terminal`)
+            dom.appendElTo(cfg.renderToEl, me._ktEl);
+        } else {
+            me._ktEl = cfg.renderToEl;
+        }
+
+        let domState = dom.survey(me._ktEl, `(.header>.btn.green+.btn.yellow+.btn.red+.title)+(.terminal>(.cli>.line>span.cursor)+.code)`);
+        dom.appendElTo(me._ktEl,
+            dom.appendElTo((domState['.header'].el || dom.create('.header')),
+                (domState['.btn.red'].el || dom.create('.btn.red')),
+                (domState['.btn.yellow'].el || dom.create('.btn.yellow')),
+                (domState['.btn.green'].el || dom.create('.btn.green')),
+                (domState['.title'].el || dom.create('.title', cfg.title))
+            ),
+            dom.appendElTo((domState['.terminal'].el || dom.create('.terminal')),
+                (domState['.cli'].el || dom.create('.cli')),
+                (domState['.code'].el || dom.create('.code'))
+            )
+        );
+
+        me._ktTitleEl = me._ktEl.querySelector('.header > .title');
+        me._ktCliEl = me._ktEl.querySelector('.terminal > .cli');
+        me._ktCodeEl = me._ktEl.querySelector('.terminal > .code');
+
+        me.title = cfg.title;
+
+        if (cfg.code === false) {
+            dom.addCls(me._ktCodeEl, 'hidden');
+        } else {
+            dom.update(me._ktCodeEl, cfg.code)
+        }
+
+        if (cfg.codeSrc) {
+            Utils.loadFileContents(cfg.codeSrc, (contents) => {
+                dom.update(me._ktCodeEl, `<pre><code>${contents}</code></pre>`);
+            });
+        }
+
+        if (cfg.scriptSrc) {
+            Utils.loadFileContents(cfg.scriptSrc, (contents) => {
+                me.robot.process(KSParser.parse(contents));
+            });
+        }
+
+        me.robot.process([{
+            action: 'prompt'
+        }]);
+    }
+
+    code (contents = '') {
+        this._ktCodeEl.innerHTML = contents;
+    }
+
+    type (line) {
+        this.robot.process({
+            text: line,
+            action: 'type'
+        });
+    }
+
+    process (conf = {}) {
+
+    }
 }
 
-Object.assign(TerminalWindow.prototype, {
-  speed: 80,
-  delimiter: '$ ',
-  cliCls: 'cli',
-  codeCls: 'code',
-  scriptsPath: '.'
-});
-
-module.exports = TerminalWindow;
+module.exports = global.kumquat = kumquat;
